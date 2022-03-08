@@ -33,7 +33,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v2
         with:
-          file: provisioning/production/Dockerfile
+          file: provisioning/Dockerfile
           platforms: linux/amd64
           push: true
           tags: maelstromeous/applications:ps2alerts-assets-${{ github.sha }}
