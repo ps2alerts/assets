@@ -48,14 +48,14 @@ jobs:
       # Inject the templates with the correct variables. {{ version }} refers to the Git SHA and is what changes the container version.
       - name: Update the K8s applicaiton resource file
         run: |
-          -e 's|{{ version }}|${{ github.sha }}|' \
+          sed -is -e 's|{{ version }}|${{ github.sha }}|' \
           -e 's|{{ replicas }}|3|' \
           -e 's|{{ hostname }}|assets.ps2alerts.com|' \
           provisioning/k8s.yml
 
       # Apply the common resources, telling k8s to change the container version to the new one.
       - uses: actions-hub/kubectl@master
-        name: Apply common resources
+        name: Apply k8s resources
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
