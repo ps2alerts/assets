@@ -83,6 +83,7 @@ metadata:
   name: ps2alerts-assets
   namespace: ps2alerts
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - "{{ hostname }}"
