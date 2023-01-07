@@ -36,7 +36,6 @@ jobs:
           file: provisioning/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags:
+          tags: |
             - maelstromeous/ps2alerts:assets-${{ github.sha }}
             - maelstromeous/ps2alerts:assets-latest
-
